@@ -33,7 +33,6 @@ public class UserSetupTest {
         session.getTransaction().commit();
 
         // assert return value
-
         Query query = session.createQuery("from User where id = " + id);
         assertEquals(1, query.list().size());
         for (Object userObject : query.list()) {
