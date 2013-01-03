@@ -108,6 +108,12 @@
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
             <version>3.2.1</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>tools</artifactId>
+                    <groupId>com.sun</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -134,7 +140,9 @@
 
 
     </dependencies>
+
     <build>
+
         <finalName>jee-webapp</finalName>
         <plugins>
             <!-- use JDK 1.6 -->
