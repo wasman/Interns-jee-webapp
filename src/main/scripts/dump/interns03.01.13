@@ -22,38 +22,16 @@ USE `interns`;
 --
 
 DROP TABLE IF EXISTS `department`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `department` (
-  `id` bigint(20) NOT NULL,
-  `faculty_id` bigint(20) NOT NULL,
-  `name` varchar(500) DEFAULT NULL,
-  `description` varchar(2000) DEFAULT NULL,
-  `departmentcol` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `faculty_department_idx` (`faculty_id`),
-  CONSTRAINT `faculty_department` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `department`
---
-
-LOCK TABLES `department` WRITE;
-/*!40000 ALTER TABLE `department` DISABLE KEYS */;
-/*!40000 ALTER TABLE `department` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `faculty`;
 
 --
 -- Table structure for table `faculty`
 --
 
-DROP TABLE IF EXISTS `faculty`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `faculty` (
-  `id` bigint(20) NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(500) NOT NULL,
   `description` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -67,6 +45,29 @@ CREATE TABLE `faculty` (
 LOCK TABLES `faculty` WRITE;
 /*!40000 ALTER TABLE `faculty` DISABLE KEYS */;
 /*!40000 ALTER TABLE `faculty` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `department` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `faculty_id` int(11) unsigned NOT NULL,
+  `name` varchar(500) DEFAULT NULL,
+  `description` varchar(2000) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `faculty_department_idx` (`faculty_id`),
+  CONSTRAINT `faculty_department` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `department`
+--
+
+LOCK TABLES `department` WRITE;
+/*!40000 ALTER TABLE `department` DISABLE KEYS */;
+/*!40000 ALTER TABLE `department` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

@@ -1,21 +1,20 @@
 package com.dio.interns.dao;
 
 import java.io.Serializable;
-import java.util.Set;
 
-public class Faculty implements Serializable {
-	private static final long serialVersionUID = -4034184535404994684L;
+public class Department implements Serializable {
+	private static final long serialVersionUID = -8946944426465353412L;
 
-	private Integer id;
+	private Long id;
 	private String name;
 	private String description;
 	
-	private Set<Faculty> departments;
-
-	public Integer getId() {
+	private Faculty faculty;
+	
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -30,10 +29,10 @@ public class Faculty implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Set<Faculty> getDepartments() {
-		return departments;
+	public Faculty getFaculty() {
+		return faculty;
 	}
-	public void setDepartments(Set<Faculty> departments) {
-		this.departments = departments;
+	public void setFaculty(Faculty faculty) {
+		this.faculty = faculty;
 	}
 }
