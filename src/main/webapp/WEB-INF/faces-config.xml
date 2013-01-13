@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+    http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0">
+
+	<!-- enable injection spring's bens in JSF managed beans -->
+	<application>
+		<el-resolver>
+			org.springframework.web.jsf.el.SpringBeanFacesELResolver
+		</el-resolver>
+	</application>
+
+	<navigation-rule>
+		<from-view-id>/forms/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/forms/faculties.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/forms/faculties.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>editFaculty</from-outcome>
+			<to-view-id>/forms/faculty.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>addFaculty</from-outcome>
+			<to-view-id>/forms/faculty.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+</faces-config>

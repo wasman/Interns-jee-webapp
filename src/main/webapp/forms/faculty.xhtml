@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <title>JSF 2.0 Hello World</title>
+    </h:head>
+    <h:body>
+    	<f:metadata>
+    		<f:viewParam id="id" name="id" value="#{facultyBean.id}"/>
+    	</f:metadata>
+    
+		<h3>Logged user: #{loginBean.user}</h3>
+    	<h:form>
+    		<h:panelGroup id="facultyProperties">
+	    		<h3>Faculty properties</h3>
+	    		<div>
+	    			Name : <h:inputText id="name" value="#{facultyBean.name}"></h:inputText>
+	    		</div>
+	    		<div>
+	    			Description <h:inputText id="description" value="#{facultyBean.description}"></h:inputText>
+	    		</div>
+    		</h:panelGroup>
+    		<h:commandButton value="Save" action="#{facultyBean.editFaculty}">
+    			<f:ajax execute="name description" render="facultyProperties"/>
+    		</h:commandButton>
+    		<h:commandButton value="Cancel" action="#{facultyBean.cancelFaculty}">
+    			<f:ajax execute="" render="facultyProperties"/>
+    		</h:commandButton>
+
+    		<h3>Faculty departments list</h3>
+    		<h:dataTable value="#{facultyBean.departments}" var="department">
+    			<h:column>
+    				<f:facet name="header">ID</f:facet>
+    				#{department.id}
+    			</h:column>
+    			<h:column>
+    				<f:facet name="header">Name</f:facet>
+    				#{department.name}
+    			</h:column>
+    			<h:column>
+    				<f:facet name="header">Description</f:facet>
+    				#{department.description}
+    			</h:column>
+    			<h:column>
+    				<f:facet name="header">Action</f:facet>
+    				<h:link outcome="editFaculty" value="edit">
+    					<f:param name="id" value="#{faculty.id}"/>
+    				</h:link>
+    			</h:column>
+    		</h:dataTable>
+    	</h:form>
+    </h:body>
+</html>
