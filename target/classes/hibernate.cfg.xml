@@ -11,11 +11,11 @@
         <property name="connection.username">root</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
-        
-        <mapping  resource="com/dio/interns/dao/User.hbm.xml"></mapping>
-        <mapping  resource="com/dio/interns/dao/Faculty.hbm.xml"></mapping>
-        <mapping  resource="com/dio/interns/dao/Department.hbm.xml"></mapping>
-        
+
+        <mapping resource="com/dio/interns/dao/User.hbm.xml"></mapping>
+        <mapping resource="com/dio/interns/dao/Faculty.hbm.xml"></mapping>
+        <mapping resource="com/dio/interns/dao/Department.hbm.xml"></mapping>
+
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>
