@@ -21,7 +21,7 @@
 			<value>classpath:hibernate.cfg.xml</value>
 		</property>
 	</bean>
-	
+
 	<bean id="facultyDao" class="com.dio.interns.dao.FacultyDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>

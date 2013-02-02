@@ -1,4 +1,4 @@
-package com.dio.interns.jsf.beans;
+package com.dio.interns.login;
 
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.context.SecurityContextHolder;

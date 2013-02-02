@@ -19,6 +19,7 @@
             <from-outcome>j_spring_security_check_ok</from-outcome>
             <to-view-id>/forms/secure/faculties.xhtml</to-view-id>
         </navigation-case>
+
     </navigation-rule>
 
     <navigation-rule>

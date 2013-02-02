@@ -1,5 +1,6 @@
 package com.dio.interns.dao;
 
+import com.dio.interns.login.UserEntity;
 import com.dio.interns.persistence.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -17,9 +18,9 @@ public class UserSetupTest {
         // initialize variable inputs
 
         // initialize mocks
-        User inputValue = new User();
+        UserEntity inputValue = new UserEntity();
 
-        inputValue.setName("mike");
+        inputValue.setUserName("mike");
         inputValue.setPassword("GENM");
 
 
@@ -33,10 +34,10 @@ public class UserSetupTest {
         session.getTransaction().commit();
 
         // assert return value
-        Query query = session.createQuery("from User where id = " + id);
+        Query query = session.createQuery("from UserEntity where id = " + id);
         assertEquals(1, query.list().size());
         for (Object userObject : query.list()) {
-            User returnValue = (User) userObject;
+            UserEntity returnValue = (UserEntity) userObject;
             assertEquals(inputValue, returnValue);
         }
 
